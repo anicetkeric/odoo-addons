@@ -28,6 +28,7 @@
             <field name="arch" type="xml">
                 <form string="Mission">
                     <sheet>
+
                         <group>
                             <group colspan="4">
                                 <field name="mission_id"/>
@@ -38,28 +39,44 @@
                                 <field name="employee_id"/>
                             </group>
                         </group>
-                        <group col="6">
+                        <group>
                             <div class="row">
+                                <div class="col-md-2">
+
+                                </div>
                                 <div class="col-md-4">
-                                    <strong><label for="mission_start_date"/></strong>
+                                    <strong>
+                                        <label for="mission_start_date"/>
+                                    </strong>
                                     <field name="mission_start_date" select="1"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <strong><label for="mission_end_date"/></strong>
+                                    <strong>
+                                        <label for="mission_end_date"/>
+                                    </strong>
                                     <field name="mission_end_date"/>
                                 </div>
-                                <div class="col-md-4">
-                                    <strong><label for="mission_duration"/></strong>
+                                <div class="col-md-2">
+                                    <strong>
+                                        <label for="mission_duration"/>
+                                    </strong>
                                     <field name="mission_duration"/>
                                 </div>
                             </div>
                         </group>
-                        <group col="4">
+                        <group>
                             <field name="mission_car"/>
                         </group>
-                        <group col="4" colspan="4">
+                        <group>
                             <field name="mission_partner"/>
+                        </group>
+                        <group>
+                            <field name="mission_budget"/>
+                        </group>
+                        <group>
                             <field name="mission_location"/>
+                        </group>
+                        <group>
                             <field name="mission_partner_manager"/>
                         </group>
                         <notebook>
@@ -82,6 +99,7 @@
         <record model="ir.ui.view" id="mission_calendar_view">
             <field name="name">hr.mission.calendar</field>
             <field name="model">hr.mission</field>
+            <!--<field name="context" eval="{'search_default_my_missions': 1}"/>-->
             <field name="arch" type="xml">
                 <calendar string="Missions Calendar" date_start="mission_start_date"
                           date_stop="mission_end_date"
@@ -93,18 +111,18 @@
 
         <!-- Mission search view-->
         <record model="ir.ui.view" id="hr_mission_view_search">
-            <field name="name">hr.mission.view.search</field>
+            <field name="name">hr.mission.search</field>
             <field name="model">hr.mission</field>
             <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Search Missions">
-                    <group col='15' colspan='4'>
+                    <!--<group col='15' colspan='4'>
                         <field name="name"/>
                         <field name="employee_id"/>
                         <field name="mission_start_date"/>
                         <field name="mission_end_date"/>
                     </group>
-                    <newline/>
+                    <newline/>-->
                     <filter name="my_missions" string="My Missions"
                             domain="[('employee_id', '=', uid)]"/>
                     <group string="Group By">
@@ -116,7 +134,6 @@
         </record>
 
         <!-- window action -->
-
         <record model="ir.actions.act_window" id="admin_access_mission_action">
             <field name="name">Missions</field>
             <field name="res_model">hr.mission</field>
@@ -134,7 +151,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr.mission</field>
             <field name="view_type">form</field>
-            <field name="view_id" ref="mission_calendar_view"/>
+            <field name="search_view_id" ref="hr_mission_view_search"/>
             <field name="view_mode">calendar,tree,form</field>
             <field name="context" eval="{'search_default_my_missions': 1}"/>
         </record>
@@ -147,20 +164,14 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-
         <!-- Top level menu: no parent -->
         <menuitem id="hr_menu_mission" name="Mission" parent="hr.menu_hr_root"/>
-        <!-- A first level in the left side menu is needed
-             before using action= attribute -->
+
         <menuitem id="leave_mission_menu"
                   name="Leave Mission"
                   parent="hr_menu_mission"
                   action="admin_access_mission_action"/>
-        <!--<menuitem id="allocation_mission_request"
-                  name="Allocation Request"
-                  action="user_access_mission_action"
-                  parent="hr_menu_mission"
-                  groups="hr_mission.group_user"/>-->
+
         <menuitem id="mission_summary"
                   name="Missions Summary"
                   action="access_mission_action"
@@ -172,6 +183,7 @@
                   name="Missions Type"
                   action="hr_menu_mission_type"
                   parent="hr.menu_hr_configuration"
-                  groups="hr_mission.group_user,hr_mission.group_manager"/>
+                  groups="hr_mission.group_manager"/>
+
     </data>
 </openerp>

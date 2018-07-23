@@ -5,16 +5,25 @@
 Use to manage employee mission outside company.
 =================================================================================================
 """,
-    'author': 'Boanergues',
-    'version': '0.1',
+    # Your information
+    'author': 'Anicet Eric Kouame and Hermann KOUADIO',
+    'website': 'https://github.com/hermannkouadio',
+    'license': 'AGPL-3',
+    'version': '8.0',
     'depends': ['base', 'hr', 'account_accountant', 'report', 'calendar', 'resource'],
     'category': 'Human Resources',
+    'description': 'This module manage the most important asset in your company: People Mission.',
+    'summary': 'This module will help you to mastering human resources mission outside your company.',
     'data': [
         'security/user_groups.xml',
         'security/ir.model.access.csv',
         'views/hr_mission_view.xml',
+        'views/mission_type_view.xml',
         'views/expense_view.xml',
-        'reports/reports.xml'
+        'reports/reports.xml',
+    ],
+    'images': [
+        'images/icon.png'
     ],
     'demo': [],
     'installable': True,
