@@ -11,7 +11,7 @@ Use to manage employee mission outside company.
     'license': 'AGPL-3',
     'version': '8.0',
     'depends': ['base', 'hr', 'account_accountant', 'report', 'calendar', 'resource'],
-    'category': 'Human Resources',
+    "category": "Generic Modules/Human Resources",
     'description': 'This module manage the most important asset in your company: People Mission.',
     'summary': 'This module will help you to mastering human resources mission outside your company.',
     'data': [
@@ -23,7 +23,7 @@ Use to manage employee mission outside company.
         'reports/reports.xml',
     ],
     'images': [
-        'images/icon.png'
+        'images/cover.png'
     ],
     'demo': [],
     'installable': True,
