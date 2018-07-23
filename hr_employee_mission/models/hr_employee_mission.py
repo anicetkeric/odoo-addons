@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class HrMission(models.Model):
-    _name = 'hr.mission'
+    _name = 'hr.employee.mission'
     _description = 'Mission object'
 
     employee_id = fields.Many2one('hr.employee', string='Employee', help="Employee sent on mission", ondelete='cascade',
@@ -37,9 +37,9 @@ class HrMission(models.Model):
     #     ('rejected', "Rejected"),
     # ], default='draft')
 
-    def get_own_missions(self, cr, uid, context=None):
-        self.env.cr.execute('SELECT date FROM hr_mission_ where id=119')
-        return self.env.cr.fetchone()
+    # def get_own_missions(self, cr, uid, context=None):
+    #     self.env.cr.execute('SELECT date FROM hr_mission_ where id=119')
+    #     return self.env.cr.fetchone()
 
     @api.constrains('mission_end_date')
     @api.onchange('mission_start_date', 'mission_end_date')
@@ -91,7 +91,7 @@ class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
     in_mission = fields.Boolean(string="In Mission")
-    missions_ids = fields.One2many('hr.mission', 'employee_id', string='Missions')
+    missions_ids = fields.One2many('hr.employee.mission', 'employee_id', string='Missions')
 
 
 class HrExpense(models.Model):
@@ -99,7 +99,7 @@ class HrExpense(models.Model):
     _description = "Expense"
     _inherit = 'hr.expense.expense'
 
-    mission_id = fields.Many2one('hr.mission', 'Missions ID', help='Related mission if exist')
+    mission_id = fields.Many2one('hr.employee.mission', 'Missions ID', help='Related mission if exist')
 
 
 class HrMissionType(models.Model):

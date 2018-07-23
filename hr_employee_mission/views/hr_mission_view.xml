@@ -4,7 +4,7 @@
         <!-- Mission list view -->
         <record model="ir.ui.view" id="hr_mission_list_view">
             <field name="name">hr.mission.list</field>
-            <field name="model">hr.mission</field>
+            <field name="model">hr.employee.mission</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Missions">
@@ -23,7 +23,7 @@
         <!-- Mission form view -->
         <record model="ir.ui.view" id="hr_mission_form_view">
             <field name="name">hr.mission.form</field>
-            <field name="model">hr.mission</field>
+            <field name="model">hr.employee.mission</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Mission">
@@ -98,7 +98,7 @@
         <!-- Mission calendar view -->
         <record model="ir.ui.view" id="mission_calendar_view">
             <field name="name">hr.mission.calendar</field>
-            <field name="model">hr.mission</field>
+            <field name="model">hr.employee.mission</field>
             <!--<field name="context" eval="{'search_default_my_missions': 1}"/>-->
             <field name="arch" type="xml">
                 <calendar string="Missions Calendar" date_start="mission_start_date"
@@ -112,7 +112,7 @@
         <!-- Mission search view-->
         <record model="ir.ui.view" id="hr_mission_view_search">
             <field name="name">hr.mission.search</field>
-            <field name="model">hr.mission</field>
+            <field name="model">hr.employee.mission</field>
             <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Search Missions">
@@ -136,7 +136,7 @@
         <!-- window action -->
         <record model="ir.actions.act_window" id="admin_access_mission_action">
             <field name="name">Missions</field>
-            <field name="res_model">hr.mission</field>
+            <field name="res_model">hr.employee.mission</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
@@ -149,7 +149,7 @@
         <record model="ir.actions.act_window" id="access_mission_action">
             <field name="name">Missions Calendar</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr.mission</field>
+            <field name="res_model">hr.employee.mission</field>
             <field name="view_type">form</field>
             <field name="search_view_id" ref="hr_mission_view_search"/>
             <field name="view_mode">calendar,tree,form</field>
@@ -176,14 +176,14 @@
                   name="Missions Summary"
                   action="access_mission_action"
                   parent="hr_menu_mission"
-                  groups="hr_mission.group_user,hr_mission.group_manager"/>
+                  groups="hr_employee_mission.group_user,hr_employee_mission.group_manager"/>
 
         <!-- Mission type configuration -->
         <menuitem id="mission_type"
                   name="Missions Type"
                   action="hr_menu_mission_type"
                   parent="hr.menu_hr_configuration"
-                  groups="hr_mission.group_manager"/>
+                  groups="hr_employee_mission.group_manager"/>
 
     </data>
 </openerp>

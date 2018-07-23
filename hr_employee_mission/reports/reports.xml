@@ -3,9 +3,9 @@
     <data>
         <report
                 id="report_mission"
-                model="hr.mission"
+                model="hr.employee.mission"
                 string="Mission Report"
-                name="hr_mission.report_mission_view"
+                name="hr_employee_mission.report_mission_view"
                 file="hr.report_mission"
                 report_type="qweb-pdf"/>
 
