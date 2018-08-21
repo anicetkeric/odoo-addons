@@ -35,11 +35,11 @@
     'license': 'AGPL-3',
 
     'images': [
-        'images/cover.jpg'
+        'images/screen.png'
     ],
 
     # Dependencies
-    'depends': ['base', 'hr'],
+    'depends': ['base', 'hr', 'hr_contract'],
 
     # Views templates, pages, menus, options and snippets
     'data': [

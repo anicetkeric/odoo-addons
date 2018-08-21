@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 {
-    'name': 'HR Mission Extension',
+    'name': 'HR Mission',
     'description': """
 Use to manage employee mission outside company.
 =================================================================================================
