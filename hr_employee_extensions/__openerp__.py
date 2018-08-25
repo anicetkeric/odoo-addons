@@ -35,7 +35,7 @@
     'license': 'AGPL-3',
 
     'images': [
-        'images/screen.png'
+         'images/cover.jpg'
     ],
 
     # Dependencies
