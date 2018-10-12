@@ -42,7 +42,7 @@ Use to manage invoice partner payment.
         "views/views.xml",
     ],
     'images': [
-        'images/icon.png'
+        'images/cover.png'
     ],
     'demo': [],
     'installable': True,
