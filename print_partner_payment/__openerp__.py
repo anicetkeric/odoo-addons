@@ -33,7 +33,7 @@ Use to manage invoice partner payment.
     'license': 'AGPL-3',
     'version': '8.0',
     "depends": ['base','account_voucher'],
-    "category": "Invoice",
+    "category": "Accounting",
     'summary': 'Use to manage partner payment',
     'data': [
         "report/paper_format.xml",
